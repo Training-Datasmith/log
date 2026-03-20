@@ -4,24 +4,36 @@ declare (strict_types=1);
 namespace Psr\Log;
 
 /**
- * This Logger can be used to avoid conditional log calls.
+ * A no-operation logger that silently discards all log messages.
  *
- * Logging should always be optional, and if no logger is provided to your
- * library creating a NullLogger instance to have something to throw logs at
- * is a good way to avoid littering your code with `if ($this->logger) { }`
- * blocks.
+ * Use Null_Logger as a default value for an optional Logger_Interface dependency.
+ * This is the Null Object pattern applied to logging: it lets you call log methods
+ * unconditionally without checking whether a real logger was provided, eliminating
+ * scattered `if ($this->logger !== null)` guards throughout the codebase.
+ *
+ * Example:
+ *   class MyService {
+ *       public function __construct(
+ *           private Logger_Interface $logger = new Null_Logger(),
+ *       ) {}
+ *   }
+ *
+ * @since 1.0
  */
 class Null_Logger extends Abstract_Logger
 {
     /**
-     * Logs with an arbitrary level.
+     * Silently discards the log entry without writing it anywhere.
      *
-     * @param mixed[] $context
+     * All calls to this method are no-ops. No I/O is performed, no memory
+     * is accumulated, and no exception is thrown regardless of $level.
      *
-     * @throws \Psr\Log\InvalidArgumentException
+     * @param mixed $level A Log_Level constant or arbitrary level string (ignored).
+     * @param string|\Stringable $message The log message (ignored).
+     * @param mixed[] $context Contextual data (ignored).
      */
-    public function log($level, string|\Stringable $message, array $context = []): void
+    public function log(mixed $level, string|\Stringable $message, array $context = []): void
     {
-        // noop
+        // Intentional no-op: messages are discarded.
     }
 }

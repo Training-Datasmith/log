@@ -4,11 +4,17 @@ declare (strict_types=1);
 namespace Psr\Log;
 
 /**
- * This is a simple Logger implementation that other Loggers can inherit from.
+ * Abstract base class providing convenience implementations of all PSR-3 methods.
  *
- * It simply delegates all log-level-specific methods to the `log` method to
- * reduce boilerplate code that a simple Logger that does the same thing with
- * messages regardless of the error level has to implement.
+ * Extend this class and implement only log() to get a fully functional logger.
+ * All eight level-specific methods (emergency, alert, critical, etc.) are
+ * provided by Logger_Trait and delegate to log() automatically.
+ *
+ * Use this when your logger class has no other parent. If it must extend
+ * another class, use Logger_Trait directly instead.
+ *
+ * @since 1.0
+ * @see Logger_Trait For use when inheritance from another class is required.
  */
 abstract class Abstract_Logger implements Logger_Interface
 {
