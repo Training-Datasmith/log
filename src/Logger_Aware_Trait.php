@@ -1,23 +1,21 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Log;
 
 /**
  * Basic Implementation of LoggerAwareInterface.
  */
-trait LoggerAwareTrait
+trait Logger_Aware_Trait
 {
     /**
      * The logger instance.
      */
-    protected ?LoggerInterface $logger = null;
-
+    protected ?Logger_Interface $logger = null;
     /**
      * Sets a logger.
      */
-    public function setLogger(LoggerInterface $logger): void
+    public function set_logger(Logger_Interface $logger): void
     {
         $this->logger = $logger;
     }

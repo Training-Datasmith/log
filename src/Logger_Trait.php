@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Log;
 
 /**
@@ -12,16 +11,15 @@ namespace Psr\Log;
  * reduce boilerplate code that a simple Logger that does the same thing with
  * messages regardless of the error level has to implement.
  */
-trait LoggerTrait
+trait Logger_Trait
 {
     /**
      * System is unusable.
      */
     public function emergency(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::EMERGENCY, $message, $context);
+        $this->log(Log_Level::EMERGENCY, $message, $context);
     }
-
     /**
      * Action must be taken immediately.
      *
@@ -30,9 +28,8 @@ trait LoggerTrait
      */
     public function alert(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::ALERT, $message, $context);
+        $this->log(Log_Level::ALERT, $message, $context);
     }
-
     /**
      * Critical conditions.
      *
@@ -40,18 +37,16 @@ trait LoggerTrait
      */
     public function critical(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::CRITICAL, $message, $context);
+        $this->log(Log_Level::CRITICAL, $message, $context);
     }
-
     /**
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
      */
     public function error(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::ERROR, $message, $context);
+        $this->log(Log_Level::ERROR, $message, $context);
     }
-
     /**
      * Exceptional occurrences that are not errors.
      *
@@ -60,17 +55,15 @@ trait LoggerTrait
      */
     public function warning(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::WARNING, $message, $context);
+        $this->log(Log_Level::WARNING, $message, $context);
     }
-
     /**
      * Normal but significant events.
      */
     public function notice(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::NOTICE, $message, $context);
+        $this->log(Log_Level::NOTICE, $message, $context);
     }
-
     /**
      * Interesting events.
      *
@@ -78,17 +71,15 @@ trait LoggerTrait
      */
     public function info(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::INFO, $message, $context);
+        $this->log(Log_Level::INFO, $message, $context);
     }
-
     /**
      * Detailed debug information.
      */
     public function debug(string|\Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::DEBUG, $message, $context);
+        $this->log(Log_Level::DEBUG, $message, $context);
     }
-
     /**
      * Logs with an arbitrary level.
      *

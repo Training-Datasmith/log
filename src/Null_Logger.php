@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Log;
 
 /**
@@ -12,7 +11,7 @@ namespace Psr\Log;
  * is a good way to avoid littering your code with `if ($this->logger) { }`
  * blocks.
  */
-class NullLogger extends AbstractLogger
+class Null_Logger extends Abstract_Logger
 {
     /**
      * Logs with an arbitrary level.

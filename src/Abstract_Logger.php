@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Log;
 
 /**
@@ -11,7 +10,7 @@ namespace Psr\Log;
  * reduce boilerplate code that a simple Logger that does the same thing with
  * messages regardless of the error level has to implement.
  */
-abstract class AbstractLogger implements LoggerInterface
+abstract class Abstract_Logger implements Logger_Interface
 {
-    use LoggerTrait;
+    use Logger_Trait;
 }
