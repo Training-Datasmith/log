@@ -13,9 +13,17 @@
     "require": {
         "php": ">=8.0.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "9.6.38"
+    },
     "autoload": {
         "psr-4": {
             "Psr\\Log\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Psr\\Log\\Tests\\": "tests/"
         }
     },
     "extra": {
