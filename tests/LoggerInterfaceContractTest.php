@@ -107,7 +107,7 @@ final class LoggerInterfaceContractTest extends TestCase
         $normalized = $this->normalizeDocblock($docComment);
 
         $this->assertMatchesRegularExpression(
-            '/@throws\s+\\\\Psr\\\\Log\\\\InvalidArgumentException/u',
+            '/(?<!\S)@throws\s+\\\\Psr\\\\Log\\\\InvalidArgumentException(?!\S)/u',
             $normalized
         );
     }
@@ -120,11 +120,11 @@ final class LoggerInterfaceContractTest extends TestCase
         $normalized = $this->normalizeDocblock($docComment);
 
         $this->assertMatchesRegularExpression(
-            '/placeholders in the form: \{foo\} where foo will be replaced by the context data in key "foo"\./u',
+            '/(?<![\w.])The message MAY contain placeholders in the form: \{foo\} where foo will be replaced by the context data in key "foo"\.(?![\w"])/u',
             $normalized
         );
         $this->assertMatchesRegularExpression(
-            '/it MUST be in a key named "exception"\./u',
+            '/(?<![\w.])The only assumption that can be made by implementors is that if an Exception instance is given to produce a stack trace, it MUST be in a key named "exception"\.(?![\w"])/u',
             $normalized
         );
     }
